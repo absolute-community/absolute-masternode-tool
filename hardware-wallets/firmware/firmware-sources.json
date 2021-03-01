@@ -16,5 +16,13 @@
     "official": true,
     "device": "trezor",
     "model": "T"
+  },
+  {
+    "url_base": "https://static.shapeshift.com/firmware",
+    "url": "releases.json",
+    "official": true,
+    "device": "keepkey",
+    "model": "keepkey",
+    "testnetSupport": false
   }
 ]

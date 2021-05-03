@@ -1,13 +1,9 @@
-## OUTDATED
-Please note that currently the documentation lags behind the development of the program, in particular in the area 
-related to starting masternodes. It will be improved according to the resources available. 
-
-# Dash Masternode Tool (DMT)
+# Absolute Masternode Tool (DMT)
 
 ## Contents
 
  * [Masternodes](#masternodes)
- * [Dash Masternode Tool](#dash-masternode-tool)
+ * [Absolute Masternode Tool](#absolute-masternode-tool)
    * [Feature list](#feature-list)
    * [Supported hardware wallets](#supported-hardware-wallets)
  * [Configuration](#configuration)
@@ -17,7 +13,7 @@ related to starting masternodes. It will be improved according to the resources 
      * [Connection to a remote node through an SSH tunnel](doc/config-connection-ssh.md)
      * [Connection to "public" JSON-RPC nodes](doc/config-connection-proxy.md)
    * [Masternode setup](#masternode-setup)
-     * [Scenario A: moving masternode management from Dash Core](doc/config-masternodes-a.md)
+     * [Scenario A: moving masternode management from Absolute Core](doc/config-masternodes-a.md)
      * [Scenario B: configuring a new masternode](doc/config-masternodes-b.md)
    * [Command line parameters](#command-line-parameters)
  * [Features](#features)
@@ -35,30 +31,30 @@ related to starting masternodes. It will be improved according to the resources 
     * Linux
        * [Ubuntu](doc/build-dmt-linux-ubuntu.md)
        * [Fedora](doc/build-dmt-linux-fedora.md)
- * [Downloads](https://github.com/Bertrand256/dash-masternode-tool/releases/latest)
+ * [Downloads](https://github.com/Bertrand256/absolute-masternode-tool/releases/latest)
  * [Changelog](changelog.md)
 
 ## Masternodes
 
-Dash masternodes are full nodes which are incentivized by receiving a share of the block reward as payment in return for the tasks they perform for the network, of which the most important include participation in *InstantSend* and *PrivateSend* transactions. In order to run a masternode, apart from setting up a server which runs the software, you must dedicate 1000 Dash as *collateral*, which is *"tied up"* in your node as long as you want it to be considered a masternode by the network. It is worth mentioning that the private key controlling the funds can (and for security reasons, should) be kept separately from the masternode server itself.
+Absolute masternodes are full nodes which are incentivized by receiving a share of the block reward as payment in return for the tasks they perform for the network, of which the most important include participation in *InstantSend* and *PrivateSend* transactions. In order to run a masternode, apart from setting up a server which runs the software, you must dedicate 1000 Absolute as *collateral*, which is *"tied up"* in your node as long as you want it to be considered a masternode by the network. It is worth mentioning that the private key controlling the funds can (and for security reasons, should) be kept separately from the masternode server itself.
 
-A server with the Dash daemon software installed will operate as a Dash full node, but before the rest of the network accepts it as a legitimate masternode, one more thing must happen: the person controlling the node must prove that they are also in control of the private key to the node's 1000 Dash *collateral*. This is achieved by sending a special message to the network (`start masternode` message), signed by this private key.
+A server with the Absolute daemon software installed will operate as a Absolute full node, but before the rest of the network accepts it as a legitimate masternode, one more thing must happen: the person controlling the node must prove that they are also in control of the private key to the node's 1000 Absolute *collateral*. This is achieved by sending a special message to the network (`start masternode` message), signed by this private key.
 
-This action can be carried out using the *Dash Core* reference software client. As can be expected, this requires sending 1000 Dash to an address controlled by the *Dash Core* wallet. After the recent increase in the value of Dash and a burst in the amount of malware distributed over the Internet, you do not have to be paranoid to conclude that keeping large amounts of funds in a software wallet is not the most secure option. For these reasons, it is highly recommended to use a **hardware wallet** for this purpose.
+This action can be carried out using the *Absolute Core* reference software client. As can be expected, this requires sending 1000 Absolute to an address controlled by the *Absolute Core* wallet. After the recent increase in the value of Absolute and a burst in the amount of malware distributed over the Internet, you do not have to be paranoid to conclude that keeping large amounts of funds in a software wallet is not the most secure option. For these reasons, it is highly recommended to use a **hardware wallet** for this purpose.
 
-# Dash Masternode Tool
+# Absolute Masternode Tool
 
 The main purpose of the application is to give masternode operators (MNOs) the ability to send the `start masternode` command through an easy to use a graphical user interface if the masternode collateral is controlled by a hardware wallet such as Trezor, KeepKey or Ledger.
 
 ## Feature list
 
 * Sending the `start masternode` command if the collateral is controlled by a hardware wallet
-* Transferring masternode earnings safely, without touching the 1000 Dash funding transaction
+* Transferring masternode earnings safely, without touching the 1000 Absolute funding transaction
 * Signing messages with a hardware wallet
 * Voting on proposals
 * Initialization/recovery of hardware wallets seeds
 * Updating of hardware wallets firmware (Trezor/KeepKey)
-* Support for Dash Testnet
+* Support for Absolute Testnet
 
 ## Supported hardware wallets
 
@@ -79,24 +75,24 @@ Most of the application features are accessible from the main program window:
 
 ## Connection setup
 
-Most of the application features involve exchanging data between the application itself and the Dash network. To do this, *DMT* needs to connect to one of the full nodes on the network, specifically one which can handle JSON-RPC requests. This node plays the role of a gateway for *DMT* to the Dash network. It does not matter which full node node provides the service, because all nodes reach consensus by synchronizing information between each other on the Dash network.
+Most of the application features involve exchanging data between the application itself and the Absolute network. To do this, *DMT* needs to connect to one of the full nodes on the network, specifically one which can handle JSON-RPC requests. This node plays the role of a gateway for *DMT* to the Absolute network. It does not matter which full node node provides the service, because all nodes reach consensus by synchronizing information between each other on the Absolute network.
 
 Depending on your preferences (and skills) you can choose one of three possible connection types:
- * [Direct connection to a local node](doc/config-connection-direct.md), for example to *Dash Core* running on your normal computer.
- * [Connection to a remote node through an SSH tunnel](doc/config-connection-ssh.md), if you want to work with a remote Dash daemon (like your masternode) through an SSH tunnel.
+ * [Direct connection to a local node](doc/config-connection-direct.md), for example to *Absolute Core* running on your normal computer.
+ * [Connection to a remote node through an SSH tunnel](doc/config-connection-ssh.md), if you want to work with a remote Absolute daemon (like your masternode) through an SSH tunnel.
  * [Connection to "public" JSON-RPC nodes](doc/config-connection-proxy.md), if you want to use nodes provided by other users.
 
 ## Masternode setup
 
 Here we make the following assumptions:
-  * You already have a server running the Dash daemon software (*dashd*) that you want to use as a masternode. If you don't, you will need to install and configure one first by following the guide on the [Dash Wiki](https://docs.dash.org/en/stable/masternodes/setup.html).
+  * You already have a server running the Absolute daemon software (*dashd*) that you want to use as a masternode. If you don't, you will need to install and configure one first by following the guide on the [Absolute Wiki](https://docs.absolute.org/en/stable/masternodes/setup.html).
   * We occasionally refer to the *dashd* configuration file, so it is assumed that *dashd* is running under a Linux operating system (OS), which is the most popular and recommended OS for this purpose.
   * Your server has a public IP address that will be visible on the Internet.
   * You have set up a TCP port on which your *dashd* listens for incoming connections (usually 9999).
 
-Further configuration steps depend on whether you already have a masternode controlled by *Dash Core* which you want to migrate to a hardware wallet managed by *DMT*, or if you are setting up a new masternode.
+Further configuration steps depend on whether you already have a masternode controlled by *Absolute Core* which you want to migrate to a hardware wallet managed by *DMT*, or if you are setting up a new masternode.
 
-[Scenario A - moving masternode management from Dash Core](doc/config-masternodes-a.md)  
+[Scenario A - moving masternode management from Absolute Core](doc/config-masternodes-a.md)  
 [Scenario B - configuration of a new masternode](doc/config-masternodes-b.md)
 
 ## Command line parameters
@@ -112,7 +108,7 @@ The application currently supports the following command-line parameters:
 
 ## Starting a masternode
 
-Once you set up the Dash daemon and perform the required *DMT* configuration, you need to broadcast the `start masternode` message to the Dash network, so the other Dash nodes recognize your daemon as a masternode and add it to the payment queue.
+Once you set up the Absolute daemon and perform the required *DMT* configuration, you need to broadcast the `start masternode` message to the Absolute network, so the other Absolute nodes recognize your daemon as a masternode and add it to the payment queue.
 
 To do this, click the `Start Masternode using Hardware wallet` button.
 
@@ -126,9 +122,9 @@ The steps are as follows:
   An example message in case of errors:  
   ![Invalid collateral transaction id](doc/img/startmn-fields-validation-error.png)
 
-2. Opening a connection to the Dash network and verifying if the Dash daemon to which it is connected is not still waiting for synchronization to complete.
+2. Opening a connection to the Absolute network and verifying if the Absolute daemon to which it is connected is not still waiting for synchronization to complete.
   Message in case of failure:  
-  ![Dash daemon synchronizing](doc/img/startmn-synchronize-warning.png)
+  ![Absolute daemon synchronizing](doc/img/startmn-synchronize-warning.png)
 
 3. Verification that the masternode status is not already `ENABLED` or `PRE_ENABLED`. If it is, the following warning appears:  
   ![Warning: masternode state is enabled](doc/img/startmn-state-warning.png)  
@@ -139,16 +135,16 @@ The steps are as follows:
 
 5. If the `BIP32 path` value is empty, *DMT* uses the *collateral address* to read the BIP32 path from the hardware wallet.
 
-6. Retrieving the Dash address from the hardware wallet for the `BIP32 path` specified in the configuration. If it differs from the collateral address provided in the configuration, the following warning appears:  
-  ![Dash address mismatch](doc/img/startmn-addr-mismatch-warning.png)  
-  The most common reason for this error is mistyping the hardware wallet passphrase. Remember that different passphrases result in different Dash addresses for the same BIP32 path.
+6. Retrieving the Absolute address from the hardware wallet for the `BIP32 path` specified in the configuration. If it differs from the collateral address provided in the configuration, the following warning appears:  
+  ![Absolute address mismatch](doc/img/startmn-addr-mismatch-warning.png)  
+  The most common reason for this error is mistyping the hardware wallet passphrase. Remember that different passphrases result in different Absolute addresses for the same BIP32 path.
 
-7. Verification that the specified transaction ID exists, points to your collateral address, is unspent and is equal to exactly 1000 Dash. Messages in case of failure:  
+7. Verification that the specified transaction ID exists, points to your collateral address, is unspent and is equal to exactly 1000 Absolute. Messages in case of failure:  
   ![Could not find the specified transaction id](doc/img/startmn-tx-warning.png)  
-  ![Collateral transaction output should equal 1000 Dash](doc/img/startmn-collateral-warning.png)  
+  ![Collateral transaction output should equal 1000 Absolute](doc/img/startmn-collateral-warning.png)  
   If you decide to continue anyway, you probably won't be able to successfully start your masternode.
 
-8. Verification at the Dash network level that the specified transaction ID is valid. Message in case of failure:  
+8. Verification at the Absolute network level that the specified transaction ID is valid. Message in case of failure:  
   ![Masternode broadcast message decode failed](doc/img/startmn-incorrect-tx-error.png)
 
 9. After completing all pre-verification, the application will ask you whether you want to continue:  
@@ -162,9 +158,9 @@ The steps are as follows:
 
 ## Transferring masternode earnings
 
-DMT version 0.9.4 and above allows you to transfer your masternode earnings. Unlike other Dash wallets, DMT gives you a 100% control over which *unspent transaction outputs* (utxo) you want to transfer. This has the same effect as the `Coin control` functionality implemented in the *Dash Core* wallet.
+DMT version 0.9.4 and above allows you to transfer your masternode earnings. Unlike other Absolute wallets, DMT gives you a 100% control over which *unspent transaction outputs* (utxo) you want to transfer. This has the same effect as the `Coin control` functionality implemented in the *Absolute Core* wallet.
 
-The `Transfer funds` window shows all *UTXOs* of the currently selected Masternode (mode 1), all Masternodes in current configuration (mode 2) or any address controlled by a hardware wallet (mode 3). All *UTXOs* not used as collateral are initially selected. All collateral *UTXOs* (1000 Dash) are initially hidden to avoid unintentionally spending collateral funds and thus breaking MN. You can show these hidden entries by unchecking the `Hide collateral utxos` option.
+The `Transfer funds` window shows all *UTXOs* of the currently selected Masternode (mode 1), all Masternodes in current configuration (mode 2) or any address controlled by a hardware wallet (mode 3). All *UTXOs* not used as collateral are initially selected. All collateral *UTXOs* (1000 Absolute) are initially hidden to avoid unintentionally spending collateral funds and thus breaking MN. You can show these hidden entries by unchecking the `Hide collateral utxos` option.
 
 To show the `Transfer funds` window, click the `Tools` menu. Then, from the popup menu choose:
  * `Transfer funds from current Masternode's address` (mode 1)
@@ -188,10 +184,10 @@ and using *wallet account* as an input (mode 3):
 To send funds, select all *UTXOs* you wish to include in your transaction, enter the details of the recipient(s), verify the transaction fee and click the `Prepare Transaction` button on the bottom: 
 ![Broadcast signed transaction confirmation](doc/img/dmt-transfer-funds-select-utxos.png)
 
-After signing the transaction with your hardware wallet, the application will display a summary and will ask you for confirmation for broadcasting the signed transaction to the Dash network.  
+After signing the transaction with your hardware wallet, the application will display a summary and will ask you for confirmation for broadcasting the signed transaction to the Absolute network.  
 ![Broadcast signed transaction confirmation](doc/img/dmt-transfer-funds-broadcast.png)
 
-After clicking `Send Transaction`, the application broadcasts the transaction and then shows a confirmation with a transaction ID as a hyperlink directing to a Dash block explorer:  
+After clicking `Send Transaction`, the application broadcasts the transaction and then shows a confirmation with a transaction ID as a hyperlink directing to a Absolute block explorer:  
 ![Transaction sent](doc/img/dmt-transfer-funds-confirmation.png)
 
 ## Signing messages with a hardware wallet
@@ -213,7 +209,7 @@ For this reason, in addition to providing the source code on GitHub, binary vers
 * macOS 10.13.2 High Sierra
 * Linux Debian Jessie
 
-Binary versions of the latest release can be downloaded from: https://github.com/Bertrand256/dash-masternode-tool/releases/latest.
+Binary versions of the latest release can be downloaded from: https://github.com/absolute-community/absolute-masternode-tool/releases/latest.
 
 ### Verification of the application binary files
 Beginning with version 0.9.15, each binary file forming part of a release has a corresponding signature file that you can use to verify the authenticity of the downloaded binary file (to ensure it has not been corrupted or replaced with a counterfeit) and confirm that it has been signed by the application author (Keybase user: bertrand256).

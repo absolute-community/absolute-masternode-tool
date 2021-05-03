@@ -1136,7 +1136,7 @@ class MainWindow(QMainWindow, WndUtils, ui_main_dlg.Ui_MainWindow):
                                         in_mn.port = ipelems[1]
                                     else:
                                         in_mn.ip = mn_ipport
-                                        in_mn.port = '9999'
+                                        in_mn.port = '18888'
                                     in_mn.collateralAddress = mn_dash_addr
                                     in_mn.collateralTx = mn_tx_hash
                                     in_mn.collateralTxIndex = mn_tx_idx
@@ -1305,7 +1305,7 @@ class MainWindow(QMainWindow, WndUtils, ui_main_dlg.Ui_MainWindow):
             mn_template = cur_masternode_sav.name
         else:
             if self.app_config.is_testnet():
-                new_mn.port = '19999'
+                new_mn.port = '18888'
             mn_template = 'MN'
         name_found = None
         for nr in range(1, 100):

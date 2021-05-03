@@ -1475,7 +1475,7 @@ class MasternodeConfig:
     def __init__(self):
         self.name = ''
         self.__ip = ''
-        self.__port = '9999'
+        self.__port = '18888'
         self.__collateralBip32Path = ''
         self.__collateralAddress = ''
         self.__collateralTx = ''

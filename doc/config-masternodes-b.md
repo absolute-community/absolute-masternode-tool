@@ -25,7 +25,7 @@ Run *Dash Masternode Tool* and click the `New` button to enter *edit* mode. If y
 Fill in the fields:
   * `Name`: name/label of your masternode (can be any alphanumeric string).
   * `IP`: the IP address of the *dashd* server.
-  * `port`: the TCP port number on which *dashd* is listening for incoming connections. You should use the value of the `rpcport` parameter from the `dash.conf` file. The default port value is `9999`.
+  * `port`: the TCP port number on which *dashd* is listening for incoming connections. You should use the value of the `rpcport` parameter from the `absolute.conf` file. The default port value is `18888`.
 
 ### Step 4
 

@@ -88,7 +88,7 @@ Here we make the following assumptions:
   * You already have a server running the Absolute daemon software (*dashd*) that you want to use as a masternode. If you don't, you will need to install and configure one first by following the guide on the [Absolute Wiki](https://docs.absolute.org/en/stable/masternodes/setup.html).
   * We occasionally refer to the *dashd* configuration file, so it is assumed that *dashd* is running under a Linux operating system (OS), which is the most popular and recommended OS for this purpose.
   * Your server has a public IP address that will be visible on the Internet.
-  * You have set up a TCP port on which your *dashd* listens for incoming connections (usually 9999).
+  * You have set up a TCP port on which your *dashd* listens for incoming connections (usually 18888).
 
 Further configuration steps depend on whether you already have a masternode controlled by *Absolute Core* which you want to migrate to a hardware wallet managed by *DMT*, or if you are setting up a new masternode.
 

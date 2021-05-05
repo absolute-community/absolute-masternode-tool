@@ -16,10 +16,8 @@ Configuration is based on ethereum-nginx-proxy, adapted to Absolute requirements
 ## Configuration
 
 When version 0.9.5 or higher of the DMT application is run the first time, "public" connections will automatically be added to the configuration. Open DMT and click the `Configure` button. In the `Configuration` dialog you should see the following three connections:
- * https://alice.absolute-masternode-tool.org:443
- * https://luna.absolute-masternode-tool.org:443
- * https://suzy.absolute-masternode-tool.org:443
- * https://test.stats.absolute.org:8080
+ * https://amt.absify.me:443
+
 
 ![Public connection configuration window](img/dmt-config-dlg-public.png)
 
@@ -31,33 +29,9 @@ If any of the listed "predefined" nodes are missing or are incomplete, follow th
 [
     {
         "use_ssh_tunnel": false,
-        "host": "alice.absolute-masternode-tool.org",
-        "port": "443",
-        "username": "dmtuser",
-        "password": "6741414141414261316250626f7137584e5950467975446e4670324e654f4f2d55706c37456634344c416d3461446d3035706436764d625875723137424b526a73665630444471506e795a475a446d696b2d657742526e4268597a634f364a624f673d3d",
-        "use_ssl": true
-    },
-    {
-        "use_ssh_tunnel": false,
-        "host": "luna.absolute-masternode-tool.org",
-        "port": "443",
-        "username": "dmtuser",
-        "password": "6741414141414261316250624e5146722d50665846656f4e524d4d2d304247466d654e4a496f5f4f352d364b74514a36364a695955387a63524f456663624a347953567152527570625830537a583234757135316c2d775444555a5a6865786b44413d3d",
-        "use_ssl": true
-    },
-    {
-        "use_ssh_tunnel": false,
-        "host": "suzy.absolute-masternode-tool.org",
-        "port": "443",
-        "username": "dmtuser",
-        "password": "674141414141426131625062763362616a4b6566376b5070474c3447547061314731562d4854314e69784a4c74382d5870744b674a4b64454d7765306142495756734f52463077647651727247335878536a7050376253596c664469783167386f413d3d",
-        "use_ssl": true
-    },
-    {
-        "use_ssh_tunnel": false,
-        "host": "test.stats.absolute.org",
-        "port": "8080",
-        "username": "absolutemnb",
+        "host": "test.absify.me",
+        "port": "18889",
+        "username": "abs_mn_user",
         "password": "674141414141426131625062376564486d456f47374658464542763742484f6e6f3453686350587837654d514c51484a4a46385a4c415a374a325574445637454d3356793979337444525f765f524e7a56747579344d73714d426d6c372d6d4c72773d3d",
         "use_ssl": true
     }
@@ -68,17 +42,9 @@ and for Absolute TESTNET:
 [
     {
         "use_ssh_tunnel": false,
-        "host": "testnet1.absolute-masternode-tool.org",
-        "port": "8443",
-        "username": "dmtuser",
-        "password": "6741414141414261316251666e4e6f59574d587675563559343661524c672d4253665433734a74324a6c52304f316677586a67507071326a75515072734d667058706c525f304f6b4861565f5974414469325f6d78584745393677592d6a4b6f56773d3d",
-        "use_ssl": true
-    },
-    {
-        "use_ssh_tunnel": false,
-        "host": "testnet2.absolute-masternode-tool.org",
-        "port": "8443",
-        "username": "dmtuser",
+        "host": "tamt.absify.me",
+        "port": "17778",
+        "username": "abs_mn_user",
         "password": "674141414141426131625166386e72744b612d564c4f726b306461717630796b335875586c336b626849665a587964697343574b314f32325a513378475876704c65324b35746435367659366b68416f4b6d395577437477414979716d6f636841513d3d",
         "use_ssl": true
     }

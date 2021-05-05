@@ -1,4 +1,4 @@
-# Absolute Masternode Tool (DMT)
+# Absolute Masternode Tool (AMT)
 
 ## Contents
 
@@ -25,7 +25,7 @@
    * [Browsing and voting on proposals](doc/proposals.md)
    * [Hardware wallet initialization/recovery](doc/hw-initialization-recovery.md)
      * [Updating hardware wallet firmware](doc/hw-initr-update-firmware.md)
- * Building the DMT executables
+ * Building the AMT executables
     * [macOS](doc/build-dmt-mac.md)
     * [Windows](doc/build-dmt-windows.md)
     * Linux

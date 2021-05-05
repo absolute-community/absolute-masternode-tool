@@ -43,7 +43,7 @@ On the `Voting History` tab you can view:
 
 In the main proposals list, select the proposal(s), you'd like to vote on.
 
-> Note: from DMT v0.9.18 you can select and vote on multiple proposals
+> Note: from DMT v1.3.0 you can select and vote on multiple proposals
 
 Open the `Vote` tab in the lower section of the `Proposals` window. You will see one row of voting buttons (*Yes*, *No*, *Abstain*) for each masternode registered in the application, and an additional row of buttons at the top to cast votes using all masternodes registered in the application:  
 ![Vote tab](img/dmt-proposals-vote.png)

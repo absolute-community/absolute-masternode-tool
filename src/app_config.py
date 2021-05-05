@@ -501,7 +501,7 @@ class AppConfig(QObject):
             os.makedirs(self.tx_cache_dir)
             if self.is_testnet():
                 # move testnet json files to a subdir (don't do this for mainnet files
-                # util there most of users move to dmt v0.9.22
+                # util there most of users move to dmt v1.3.0
                 try:
                     for file in glob.glob(os.path.join(self.cache_dir, 'insight_absolute_testnet*.json')):
                         shutil.move(file, self.tx_cache_dir)
@@ -734,7 +734,7 @@ class AppConfig(QObject):
                                 roles = int(config.get(section, 'dmn_user_roles', fallback='0').strip())
                                 if not roles:
                                     role_old = int(config.get(section, 'dmn_user_role', fallback='0').strip())
-                                    # try reding the pre v0.9.22 role and map it to the current role-set
+                                    # try reding the pre v1.3.0 role and map it to the current role-set
                                     if role_old:
                                         if role_old == 1:
                                             mn.dmn_user_roles = DMN_ROLE_OWNER | DMN_ROLE_OPERATOR | DMN_ROLE_VOTING

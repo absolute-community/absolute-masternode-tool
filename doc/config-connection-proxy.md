@@ -16,7 +16,7 @@ Configuration is based on ethereum-nginx-proxy, adapted to Absolute requirements
 ## Configuration
 
 When version 0.9.5 or higher of the DMT application is run the first time, "public" connections will automatically be added to the configuration. Open DMT and click the `Configure` button. In the `Configuration` dialog you should see the following three connections:
- * https://amt.absify.me:443
+ * https://amt.absify.me:18889
 
 
 ![Public connection configuration window](img/dmt-config-dlg-public.png)
@@ -32,7 +32,7 @@ If any of the listed "predefined" nodes are missing or are incomplete, follow th
         "host": "test.absify.me",
         "port": "18889",
         "username": "abs_mn_user",
-        "password": "674141414141426131625062376564486d456f47374658464542763742484f6e6f3453686350587837654d514c51484a4a46385a4c415a374a325574445637454d3356793979337444525f765f524e7a56747579344d73714d426d6c372d6d4c72773d3d",
+        "password": "abs_mn_user",
         "use_ssl": true
     }
 ]
@@ -45,7 +45,7 @@ and for Absolute TESTNET:
         "host": "tamt.absify.me",
         "port": "17778",
         "username": "abs_mn_user",
-        "password": "674141414141426131625166386e72744b612d564c4f726b306461717630796b335875586c336b626849665a587964697343574b314f32325a513378475876704c65324b35746435367659366b68416f4b6d395577437477414979716d6f636841513d3d",
+        "password": "abs_mn_user",
         "use_ssl": true
     }
 ]

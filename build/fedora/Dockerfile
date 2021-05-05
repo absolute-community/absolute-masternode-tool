@@ -1,6 +1,6 @@
 FROM fedora
 MAINTAINER \
-[Bertrand256 <bertrand256gh@protonmail.com>]
+[absolute-community <bertrand256gh@protonmail.com>]
 RUN yum update -y \
  && yum group install -y "Development Tools" "Development Libraries" \
  && yum install -y redhat-rpm-config python3-devel libusbx-devel libudev-devel cmake gcc-c++ \
@@ -12,15 +12,15 @@ RUN yum update -y \
  && virtualenv -p python3 venv \
  && . venv/bin/activate \
  && pip install --upgrade setuptools \
- && git clone https://github.com/Bertrand256/dash-masternode-tool \
- && cd dash-masternode-tool/ \
+ && git clone https://github.com/absolute-community/absolute-masternode-tool \
+ && cd absolute-masternode-tool/ \
  && pip install -r requirements.txt \
  && cd ~/dmt \
  && set +H \
  && echo "#!/bin/sh" | tee build-dmt.sh \
  && echo "cd ~/dmt" | tee -a build-dmt.sh \
  && echo ". venv/bin/activate" | tee -a build-dmt.sh \
- && echo "cd dash-masternode-tool" | tee -a build-dmt.sh \
+ && echo "cd absolute-masternode-tool" | tee -a build-dmt.sh \
  && echo "git fetch --all" | tee -a build-dmt.sh \
  && echo "git reset --hard origin/master" | tee -a build-dmt.sh \
  && echo "pip install -r requirements.txt" | tee -a build-dmt.sh \

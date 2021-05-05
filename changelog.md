@@ -217,9 +217,9 @@ external file (can be encrypted with hardware wallet)
 
 **Backend changes**
 
-- Changed the domain for "public" nodes to something more relevant: dash-masternode-tool.org.
+- Changed the domain for "public" nodes to something more relevant: absolute-masternode-tool.org.
 - Changed the TCP port number for *alice* and *luna* "public" RPC nodes to 443 - the official HTTPS port.
-- Added a new "public" RPC node: suzy.dash-masternode-tool.org:443.
+- Added a new "public" RPC node: suzy.absolute-masternode-tool.org:443.
 
 **Known issues**
 

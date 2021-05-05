@@ -807,7 +807,7 @@ class AppConfig(QObject):
                                 skip_adding = True
                                 configuration_corrected = True
                             elif cfg.get_conn_id() == '9b73e3fad66e8d07597c3afcf14f8f3513ed63dfc903b5d6e02c46f59c2ffadc':
-                                # delete obsolete "public" connection to luna.dash-masternode-tool.org
+                                # delete obsolete "public" connection to luna.absolute-masternode-tool.org
                                 skip_adding = True
                                 configuration_corrected = True
 

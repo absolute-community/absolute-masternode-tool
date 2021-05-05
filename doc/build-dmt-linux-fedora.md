@@ -15,15 +15,15 @@ Execute the following commands from the terminal:
 [dmt@fedora /]# virtualenv -p python3 venv
 [dmt@fedora /]# . venv/bin/activate
 [dmt@fedora /]# pip install --upgrade setuptools
-[dmt@fedora /]# git clone https://github.com/Bertrand256/dash-masternode-tool
-[dmt@fedora /]# cd dash-masternode-tool/
+[dmt@fedora /]# git clone https://github.com/absolute-community/absolute-masternode-tool
+[dmt@fedora /]# cd absolute-masternode-tool/
 [dmt@fedora /]# pip install -r requirements.txt
 [dmt@fedora /]# pyinstaller --distpath=../dist/linux --workpath=../dist/linux/build dash_masternode_tool.spec
 ```
 
 The following files will be created once the build has completed successfully:
-* Executable: `~/dmt/dist/linux/DashMasternodeTool`
-* Compressed executable: `~/dmt/dist/all/DashMasternodeTool_<verion_string>.linux.tar.gz`
+* Executable: `~/dmt/dist/linux/AbsoluteMasternodeTool`
+* Compressed executable: `~/dmt/dist/all/AbsoluteMasternodeTool_<verion_string>.linux.tar.gz`
 
 
 ### Method based on Docker
@@ -61,7 +61,7 @@ docker pull bertrand256/build-dmt
 
 **Build the image yourself, using the Dockerfile file from the DMT project repository.** 
 
-* Download the https://github.com/Bertrand256/dash-masternode-tool/blob/master/build/fedora/Dockerfile file and place it in the *working directory*
+* Download the https://github.com/absolute-community/absolute-masternode-tool/blob/master/build/fedora/Dockerfile file and place it in the *working directory*
 * Execute the following command:
 ```
 docker build -t bertrand256/build-dmt .

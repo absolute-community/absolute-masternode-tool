@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/blogin/Projects/dash-masternode-tool/src/ui/ui_upd_mn_registrar_dlg.ui'
+# Form implementation generated from reading ui file '/Users/blogin/Projects/absolute-masternode-tool/src/ui/ui_upd_mn_registrar_dlg.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #

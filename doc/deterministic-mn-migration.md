@@ -48,7 +48,7 @@ members, who will choose the most optimal timing for this.
 deterministic masternodes.
 
 **RPC node**: a Dash node providing an interface for external apps to
-communicate with the Dash network. DashMasternodeTool (**DMT**) requires
+communicate with the Dash network. AbsoluteMasternodeTool (**DMT**) requires
 connection with such node to carry out the most of its
 functionalities.
 

@@ -25,16 +25,16 @@ After making sure that you have the correct Python version, execute the followin
 [dmt@ubuntu /]# virtualenv -p python3.6 venv
 [dmt@ubuntu /]# . venv/bin/activate
 [dmt@ubuntu /]# pip install --upgrade setuptools
-[dmt@ubuntu /]# git clone https://github.com/Bertrand256/dash-masternode-tool
-[dmt@ubuntu /]# cd dash-masternode-tool/
+[dmt@ubuntu /]# git clone https://github.com/absolute-community/absolute-masternode-tool
+[dmt@ubuntu /]# cd absolute-masternode-tool/
 [dmt@ubuntu /]# pip install -r requirements.txt
 [dmt@ubuntu /]# pyinstaller --distpath=../dist/linux --workpath=../dist/linux/build dash_masternode_tool.spec
 ```
 
 The following files will be created once the build has completed successfully:
 
-* Executable: `~/dmt/dist/linux/DashMasternodeTool`
-* Compressed executable: `~/dmt/dist/all/DashMasternodeTool_<verion_string>.linux.tar.gz`
+* Executable: `~/dmt/dist/linux/AbsoluteMasternodeTool`
+* Compressed executable: `~/dmt/dist/all/AbsoluteMasternodeTool_<verion_string>.linux.tar.gz`
 
 
 ### Method based on Docker
@@ -72,7 +72,7 @@ docker pull bertrand256/build-dmt:ubuntu
 
 **Build the image yourself, using the Dockerfile file from the DMT project repository.** 
 
-* Download the https://github.com/Bertrand256/dash-masternode-tool/blob/master/build/ubuntu/Dockerfile file and place it in the *working directory*
+* Download the https://github.com/absolute-community/absolute-masternode-tool/blob/master/build/ubuntu/Dockerfile file and place it in the *working directory*
 * Execute the following command:
 ```
 docker build -t bertrand256/build-dmt:ubuntu .

@@ -111,13 +111,13 @@ Open the Windows command prompt (*cmd.exe*)  and run the following commands:
 
   ```
   cd c:\projects
-  git clone https://github.com/Bertrand256/dash-masternode-tool
+  git clone https://github.com/absolute-community/absolute-masternode-tool
   ```
 
 * Install the DMT Python requirements:
 
   ```
-  cd dash-masternode-tool
+  cd absolute-masternode-tool
   pip install -r requirements.txt
   ```
   

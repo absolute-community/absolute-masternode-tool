@@ -6,10 +6,10 @@ import collections
 import logging
 from typing import List
 
-APP_NAME_SHORT = 'DashMasternodeTool'
+APP_NAME_SHORT = 'AbsoluteMasternodeTool'
 APP_NAME_LONG = 'Dash Masternode Tool'
 APP_DATA_DIR_NAME = '.dmt'
-PROJECT_URL = 'https://github.com/Bertrand256/dash-masternode-tool'
+PROJECT_URL = 'https://github.com/absolute-community/absolute-masternode-tool'
 FEE_DUFF_PER_BYTE = 1
 MIN_TX_FEE = 1000
 SCREENSHOT_MODE = False

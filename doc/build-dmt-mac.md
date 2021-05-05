@@ -52,13 +52,13 @@ You can build Dash Masternode Tool for macOS by opening the Terminal app and run
 
   ```
   cd ~/projects
-  git clone https://github.com/Bertrand256/dash-masternode-tool
+  git clone https://github.com/absolute-community/absolute-masternode-tool
   ```
 
 * Install the DMT Python requirements:
 
   ```
-  cd dash-masternode-tool
+  cd absolute-masternode-tool
   pip install -r requirements.txt
   ```
 
@@ -69,4 +69,4 @@ You can build Dash Masternode Tool for macOS by opening the Terminal app and run
   ```
 
 
-Once the build has completed successfully, a compressed macOS executable file will be created in the ***~/projects/dist/all*** directory. An uncompressed app package (*DashMasternodeTool.app*) can be found in the ***~/projects/dist/mac*** directory.
+Once the build has completed successfully, a compressed macOS executable file will be created in the ***~/projects/dist/all*** directory. An uncompressed app package (*AbsoluteMasternodeTool.app*) can be found in the ***~/projects/dist/mac*** directory.

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/Users/blogin/Projects/dash-masternode-tool/src/ui/ui_main_dlg.ui'
+# Form implementation generated from reading ui file '/Users/blogin/Projects/absolute-masternode-tool/src/ui/ui_main_dlg.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
@@ -398,7 +398,7 @@ class Ui_MainWindow(object):
         self.action_check_for_updates.setText(_translate("MainWindow", "Check For Updates"))
         self.action_open_log_file.setText(_translate("MainWindow", "Open Log File"))
         self.action_open_log_file.setShortcut(_translate("MainWindow", "Meta+Alt+L"))
-        self.action_about_app.setText(_translate("MainWindow", "About DashMasternodeTool..."))
+        self.action_about_app.setText(_translate("MainWindow", "About AbsoluteMasternodeTool..."))
         self.action_import_masternode_conf.setText(_translate("MainWindow", "Import masternodes from the masternode.conf file..."))
         self.action_about_qt.setText(_translate("MainWindow", "About Qt..."))
         self.action_about_qt.setToolTip(_translate("MainWindow", "About Qt"))

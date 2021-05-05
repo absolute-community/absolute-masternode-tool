@@ -31,7 +31,7 @@
     * Linux
        * [Ubuntu](doc/build-dmt-linux-ubuntu.md)
        * [Fedora](doc/build-dmt-linux-fedora.md)
- * [Downloads](https://github.com/Bertrand256/absolute-masternode-tool/releases/latest)
+ * [Downloads](https://github.com/absolute-community/absolute-masternode-tool/releases/latest)
  * [Changelog](changelog.md)
 
 ## Masternodes
@@ -100,7 +100,7 @@ Further configuration steps depend on whether you already have a masternode cont
 The application currently supports the following command-line parameters:
 * `--data-dir`: a path to a directory in which the application will create all the needed files, such as: configuration file, cache and log files; it can be useful for users who want to avoid leaving any of the application files on the computer - which by default are created in the user's home directory - and insted to keep them on an external drive
 * `--config`: a non-standard path to a configuration file. Example:
-  `DashMasternodeTool.exe --config=C:\dmt-configs\config1.ini`
+  `AbsoluteMasternodeTool.exe --config=C:\dmt-configs\config1.ini`
 
 
 
@@ -228,14 +228,14 @@ The verification method described below is based on use of the Keybase applicati
 
    ```
    <username>: ls
-   DashMasternodeTool_0.9.15.mac.zip    DashMasternodeTool_0.9.15.mac.zip.asc
+   AbsoluteMasternodeTool_0.9.15.mac.zip    AbsoluteMasternodeTool_0.9.15.mac.zip.asc
    ```
 
 
 3. Verify the signature by executing the following command:
 
    ```
-   keybase pgp verify -d DashMasternodeTool_0.9.15.mac.zip.asc -i DashMasternodeTool_0.9.15.mac.zip -S bertrand256
+   keybase pgp verify -d AbsoluteMasternodeTool_0.9.15.mac.zip.asc -i AbsoluteMasternodeTool_0.9.15.mac.zip -S bertrand256
    ```
 
    You should see something similar to the following if verification was successful:

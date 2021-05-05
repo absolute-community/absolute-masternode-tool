@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Author: Bertrand256
+# Author: absolute-community
 # Created on: 2017-04
 
 """

@@ -1,4 +1,4 @@
-## Building the Dash Masternode Tool executable on Windows
+## Building the Absolute Masternode Tool executable on Windows
 The following procedure describes the process of building a 64-bit executable file under Windows 7. The procedure to compile for a 32-bit version or using Windows 10 does not differ significantly.
 
 We assume that the procedure is carried out on a clean installation of the operating system, on which you have not previously installed any program used in the procedure (e.g. Python). To avoid any confusion arising from version incompatibilities, any previously installed software should be uninstalled first.
@@ -124,8 +124,8 @@ Open the Windows command prompt (*cmd.exe*)  and run the following commands:
 * Build the DMT executable:
 
   ```
-  pyinstaller --distpath=..\dist\win64 --workpath=..\build\win64 dash_masternode_tool.spec
+  pyinstaller --distpath=..\dist\win64 --workpath=..\build\win64 absolute_masternode_tool.spec
   ```
 
 
-Once the build has completed successfully, a compressed Windows executable file will be created in the ***C:\projects\dist\all*** directory. An uncompressed executable file (*DashMasernodeTool.exe*) can be found in the ***C:\projects\dist\win64*** directory.
+Once the build has completed successfully, a compressed Windows executable file will be created in the ***C:\projects\dist\all*** directory. An uncompressed executable file (*AbsoluteMasernodeTool.exe*) can be found in the ***C:\projects\dist\win64*** directory.

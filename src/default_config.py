@@ -1,6 +1,6 @@
 
 # default "public" connections for RPC proxy
-dashd_default_connections = [
+absoluted_default_connections = [
     {
         "use_ssh_tunnel": False,
         "host": "alice.absolute-masternode-tool.org",

@@ -7,7 +7,7 @@ import logging
 from typing import List
 
 APP_NAME_SHORT = 'AbsoluteMasternodeTool'
-APP_NAME_LONG = 'Dash Masternode Tool'
+APP_NAME_LONG = 'Absolute Masternode Tool'
 APP_DATA_DIR_NAME = '.dmt'
 PROJECT_URL = 'https://github.com/absolute-community/absolute-masternode-tool'
 FEE_DUFF_PER_BYTE = 1
@@ -57,7 +57,7 @@ def get_doc_url(doc_file_name):
 __KNOWN_LOGGERS = [
     KnownLoggerType(name='dmt.wallet_dlg', external=False),
     KnownLoggerType(name='dmt.bip44_wallet', external=False),
-    KnownLoggerType(name='dmt.dashd_intf', external=False),
+    KnownLoggerType(name='dmt.absoluted_intf', external=False),
     KnownLoggerType(name='dmt.db_intf', external=False),
     KnownLoggerType(name='dmt.proposals', external=False),
     KnownLoggerType(name='dmt.ext_item_model', external=False),

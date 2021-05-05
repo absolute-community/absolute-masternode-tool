@@ -55,7 +55,7 @@ Alternatively, you can vote on the `Details` tab, using the links from the topof
 
 If you own several masternodes, you should consider that casting a vote with all of them simultaneously is in effect publicly linking all of the nodes to a single owner, which may be considered a privacy risk. The following screenshot highlights this point:  
 ![Simultaneous voting](img/dmt-proposals-vote-time-offset.png)  
-Bear in mind that all of this information is available to anybody with access to any Dash daemon.
+Bear in mind that all of this information is available to anybody with access to any Absolute daemon.
 
 Fortunately, there is an easy way to mitigate this type of timing attack. *DMT* can add a random offset (within a range of +/- 30 min) to the voting time for each of configured masternode, so clicking one of the `Yes/No/Abstain for all` buttons will result in a different voting timestamp for each masternode, as seen by the network. This feature can be enabled using the `Add random offset to new vote time to enhance privacy` option, as shown in the screenshot below:  
 ![Random offset for voting](img/dmt-proposals-config-time-offset.png)

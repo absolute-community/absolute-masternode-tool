@@ -514,7 +514,7 @@
               </sizepolicy>
              </property>
              <property name="whatsThis">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check the link attached &amp;lt;a href=&amp;quot;dash.org&amp;quot;&amp;gt;dash.org&amp;lt;/a&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Check the link attached &amp;lt;a href=&amp;quot;absolute.org&amp;quot;&amp;gt;absolute.org&amp;lt;/a&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string>Use passphrase</string>
@@ -861,7 +861,7 @@
              <item>
               <widget class="QLabel" name="label_5">
                <property name="text">
-                <string>Dash addresses which will be available in the device after finishing the process:</string>
+                <string>Absolute addresses which will be available in the device after finishing the process:</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>

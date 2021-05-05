@@ -159,7 +159,7 @@ class Ui_UpdMnRegistrarDlg(object):
     def retranslateUi(self, UpdMnRegistrarDlg):
         _translate = QtCore.QCoreApplication.translate
         UpdMnRegistrarDlg.setWindowTitle(_translate("UpdMnRegistrarDlg", "Update masternode registrar"))
-        self.lblDescription.setText(_translate("UpdMnRegistrarDlg", "The transaction type associated with this action (ProUpRegTx) is used to update information relating to the owner (<a href=\"https://docs.dash.org/en/stable/masternodes/maintenance.html#proupregtx\">details</a>)."))
+        self.lblDescription.setText(_translate("UpdMnRegistrarDlg", "The transaction type associated with this action (ProUpRegTx) is used to update information relating to the owner (<a href=\"https://absify.me/masternodes/maintenance.html#proupregtx\">details</a>)."))
         self.edtOperatorKey.setPlaceholderText(_translate("UpdMnRegistrarDlg", "<unchanged>"))
         self.btnGenerateOperatorKey.setText(_translate("UpdMnRegistrarDlg", "Generate new"))
         self.lblVotingKey.setText(_translate("UpdMnRegistrarDlg", "<b>Voting private key</b>"))

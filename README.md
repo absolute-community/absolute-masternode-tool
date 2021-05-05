@@ -36,11 +36,11 @@
 
 ## Masternodes
 
-Absolute masternodes are full nodes which are incentivized by receiving a share of the block reward as payment in return for the tasks they perform for the network, of which the most important include participation in *InstantSend* and *PrivateSend* transactions. In order to run a masternode, apart from setting up a server which runs the software, you must dedicate 1000 Absolute as *collateral*, which is *"tied up"* in your node as long as you want it to be considered a masternode by the network. It is worth mentioning that the private key controlling the funds can (and for security reasons, should) be kept separately from the masternode server itself.
+Absolute masternodes are full nodes which are incentivized by receiving a share of the block reward as payment in return for the tasks they perform for the network, of which the most important include participation in *InstantSend* and *PrivateSend* transactions. In order to run a masternode, apart from setting up a server which runs the software, you must dedicate 2500 Absolute as *collateral*, which is *"tied up"* in your node as long as you want it to be considered a masternode by the network. It is worth mentioning that the private key controlling the funds can (and for security reasons, should) be kept separately from the masternode server itself.
 
-A server with the Absolute daemon software installed will operate as a Absolute full node, but before the rest of the network accepts it as a legitimate masternode, one more thing must happen: the person controlling the node must prove that they are also in control of the private key to the node's 1000 Absolute *collateral*. This is achieved by sending a special message to the network (`start masternode` message), signed by this private key.
+A server with the Absolute daemon software installed will operate as a Absolute full node, but before the rest of the network accepts it as a legitimate masternode, one more thing must happen: the person controlling the node must prove that they are also in control of the private key to the node's 2500 Absolute *collateral*. This is achieved by sending a special message to the network (`start masternode` message), signed by this private key.
 
-This action can be carried out using the *Absolute Core* reference software client. As can be expected, this requires sending 1000 Absolute to an address controlled by the *Absolute Core* wallet. After the recent increase in the value of Absolute and a burst in the amount of malware distributed over the Internet, you do not have to be paranoid to conclude that keeping large amounts of funds in a software wallet is not the most secure option. For these reasons, it is highly recommended to use a **hardware wallet** for this purpose.
+This action can be carried out using the *Absolute Core* reference software client. As can be expected, this requires sending 2500 Absolute to an address controlled by the *Absolute Core* wallet. After the recent increase in the value of Absolute and a burst in the amount of malware distributed over the Internet, you do not have to be paranoid to conclude that keeping large amounts of funds in a software wallet is not the most secure option. For these reasons, it is highly recommended to use a **hardware wallet** for this purpose.
 
 # Absolute Masternode Tool
 
@@ -49,7 +49,7 @@ The main purpose of the application is to give masternode operators (MNOs) the a
 ## Feature list
 
 * Sending the `start masternode` command if the collateral is controlled by a hardware wallet
-* Transferring masternode earnings safely, without touching the 1000 Absolute funding transaction
+* Transferring masternode earnings safely, without touching the 2500 Absolute funding transaction
 * Signing messages with a hardware wallet
 * Voting on proposals
 * Initialization/recovery of hardware wallets seeds
@@ -85,10 +85,10 @@ Depending on your preferences (and skills) you can choose one of three possible 
 ## Masternode setup
 
 Here we make the following assumptions:
-  * You already have a server running the Absolute daemon software (*dashd*) that you want to use as a masternode. If you don't, you will need to install and configure one first by following the guide on the [Absolute Wiki](https://docs.absolute.org/en/stable/masternodes/setup.html).
-  * We occasionally refer to the *dashd* configuration file, so it is assumed that *dashd* is running under a Linux operating system (OS), which is the most popular and recommended OS for this purpose.
+  * You already have a server running the Absolute daemon software (*absoluted*) that you want to use as a masternode. If you don't, you will need to install and configure one first by following the guide on the [Absolute Wiki](https://docs.absolute.org/en/stable/masternodes/setup.html).
+  * We occasionally refer to the *absoluted* configuration file, so it is assumed that *absoluted* is running under a Linux operating system (OS), which is the most popular and recommended OS for this purpose.
   * Your server has a public IP address that will be visible on the Internet.
-  * You have set up a TCP port on which your *dashd* listens for incoming connections (usually 18888).
+  * You have set up a TCP port on which your *absoluted* listens for incoming connections (usually 18888).
 
 Further configuration steps depend on whether you already have a masternode controlled by *Absolute Core* which you want to migrate to a hardware wallet managed by *DMT*, or if you are setting up a new masternode.
 
@@ -139,9 +139,9 @@ The steps are as follows:
   ![Absolute address mismatch](doc/img/startmn-addr-mismatch-warning.png)  
   The most common reason for this error is mistyping the hardware wallet passphrase. Remember that different passphrases result in different Absolute addresses for the same BIP32 path.
 
-7. Verification that the specified transaction ID exists, points to your collateral address, is unspent and is equal to exactly 1000 Absolute. Messages in case of failure:  
+7. Verification that the specified transaction ID exists, points to your collateral address, is unspent and is equal to exactly 2500 Absolute. Messages in case of failure:  
   ![Could not find the specified transaction id](doc/img/startmn-tx-warning.png)  
-  ![Collateral transaction output should equal 1000 Absolute](doc/img/startmn-collateral-warning.png)  
+  ![Collateral transaction output should equal 2500 Absolute](doc/img/startmn-collateral-warning.png)  
   If you decide to continue anyway, you probably won't be able to successfully start your masternode.
 
 8. Verification at the Absolute network level that the specified transaction ID is valid. Message in case of failure:  
@@ -160,7 +160,7 @@ The steps are as follows:
 
 DMT version 0.9.4 and above allows you to transfer your masternode earnings. Unlike other Absolute wallets, DMT gives you a 100% control over which *unspent transaction outputs* (utxo) you want to transfer. This has the same effect as the `Coin control` functionality implemented in the *Absolute Core* wallet.
 
-The `Transfer funds` window shows all *UTXOs* of the currently selected Masternode (mode 1), all Masternodes in current configuration (mode 2) or any address controlled by a hardware wallet (mode 3). All *UTXOs* not used as collateral are initially selected. All collateral *UTXOs* (1000 Absolute) are initially hidden to avoid unintentionally spending collateral funds and thus breaking MN. You can show these hidden entries by unchecking the `Hide collateral utxos` option.
+The `Transfer funds` window shows all *UTXOs* of the currently selected Masternode (mode 1), all Masternodes in current configuration (mode 2) or any address controlled by a hardware wallet (mode 3). All *UTXOs* not used as collateral are initially selected. All collateral *UTXOs* (2500 Absolute) are initially hidden to avoid unintentionally spending collateral funds and thus breaking MN. You can show these hidden entries by unchecking the `Hide collateral utxos` option.
 
 To show the `Transfer funds` window, click the `Tools` menu. Then, from the popup menu choose:
  * `Transfer funds from current Masternode's address` (mode 1)

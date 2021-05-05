@@ -1,4 +1,4 @@
-## Building the Dash Masternode Tool executable on Ubuntu Linux
+## Building the Absolute Masternode Tool executable on Ubuntu Linux
 
 ### Method based on physical or virtual linux machine
 
@@ -28,7 +28,7 @@ After making sure that you have the correct Python version, execute the followin
 [dmt@ubuntu /]# git clone https://github.com/absolute-community/absolute-masternode-tool
 [dmt@ubuntu /]# cd absolute-masternode-tool/
 [dmt@ubuntu /]# pip install -r requirements.txt
-[dmt@ubuntu /]# pyinstaller --distpath=../dist/linux --workpath=../dist/linux/build dash_masternode_tool.spec
+[dmt@ubuntu /]# pyinstaller --distpath=../dist/linux --workpath=../dist/linux/build absolute_masternode_tool.spec
 ```
 
 The following files will be created once the build has completed successfully:
@@ -39,7 +39,7 @@ The following files will be created once the build has completed successfully:
 
 ### Method based on Docker
 
-This method uses a dedicated **docker image** configured to carry out an automated build process for *Dash Masternode Tool*. The advantage of this method is its simplicity and the fact that it does not make any changes in the list of installed apps/libraries on your physical/virtual machine. All necessary dependencies are installed inside the Docker container. The second important advantage is that compilation can also be carried out on Windows or macOS (if Docker is installed), but keep in mind that the result of the build will be a Linux executable.
+This method uses a dedicated **docker image** configured to carry out an automated build process for *Absolute Masternode Tool*. The advantage of this method is its simplicity and the fact that it does not make any changes in the list of installed apps/libraries on your physical/virtual machine. All necessary dependencies are installed inside the Docker container. The second important advantage is that compilation can also be carried out on Windows or macOS (if Docker is installed), but keep in mind that the result of the build will be a Linux executable.
 
 > **Note: Skip steps 3 and 4 if you are not performing this procedure for the first time (building a newer version of DMT, for example)**
 
@@ -92,7 +92,7 @@ mkdir -p build
 docker create --name dmtbuild -v $(pwd)/build:/root/dmt/dist -it bertrand256/build-dmt:ubuntu
 ```
 
-#### 5. Build the Dash Masternode Tool executable
+#### 5. Build the Absolute Masternode Tool executable
 
 ```
 docker start -ai dmtbuild

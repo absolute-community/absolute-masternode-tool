@@ -1,6 +1,6 @@
-## Building the Dash Masternode Tool executable on macOS
+## Building the Absolute Masternode Tool executable on macOS
 
-You can build Dash Masternode Tool for macOS by opening the Terminal app and running the following commands:
+You can build Absolute Masternode Tool for macOS by opening the Terminal app and running the following commands:
 
 * Install *Homebrew*:
 
@@ -65,7 +65,7 @@ You can build Dash Masternode Tool for macOS by opening the Terminal app and run
 * Build the DMT executable:
 
   ```
-  pyinstaller --distpath=../dist/mac --workpath=../build/mac dash_masternode_tool.spec
+  pyinstaller --distpath=../dist/mac --workpath=../build/mac absolute_masternode_tool.spec
   ```
 
 

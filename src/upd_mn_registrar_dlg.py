@@ -8,9 +8,9 @@ from bitcoinrpc.authproxy import JSONRPCException
 import app_cache
 from app_config import MasternodeConfig, AppConfig, InputKeyType
 from app_defs import FEE_DUFF_PER_BYTE
-from dash_utils import wif_privkey_to_address, generate_wif_privkey, generate_bls_privkey, validate_address, \
+from absolute_utils import wif_privkey_to_address, generate_wif_privkey, generate_bls_privkey, validate_address, \
     bls_privkey_to_pubkey, validate_wif_privkey
-from dashd_intf import DashdInterface
+from absoluted_intf import AbsolutedInterface
 from ui import ui_upd_mn_registrar_dlg
 from wnd_utils import WndUtils, ProxyStyleNoFocusRect
 
@@ -21,7 +21,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
     def __init__(self,
                  main_dlg,
                  app_config: AppConfig,
-                 dashd_intf: DashdInterface,
+                 absoluted_intf: AbsolutedInterface,
                  masternode: MasternodeConfig,
                  on_upd_success_callback: Callable,
                  show_upd_payout: bool,
@@ -33,7 +33,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
         self.main_dlg = main_dlg
         self.masternode = masternode
         self.app_config = app_config
-        self.dashd_intf = dashd_intf
+        self.absoluted_intf = absoluted_intf
         self.on_upd_success_callback = on_upd_success_callback
         self.dmn_operator_key_type = InputKeyType.PRIVATE
         self.dmn_voting_key_type = InputKeyType.PRIVATE
@@ -100,7 +100,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
         try:
             protx = None
             if not self.dmn_protx_hash:
-                for protx in self.dashd_intf.protx('list', 'registered', True):
+                for protx in self.absoluted_intf.protx('list', 'registered', True):
                     protx_state = protx.get('state')
                     if (protx_state and protx_state.get(
                             'service') == self.masternode.ip + ':' + self.masternode.port) or \
@@ -114,7 +114,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
 
             if not protx:
                 try:
-                    protx = self.dashd_intf.protx('info', self.dmn_protx_hash)
+                    protx = self.absoluted_intf.protx('info', self.dmn_protx_hash)
                 except Exception as e:
                     if str(e).find('not found') >= 0:
                         raise Exception(f'A protx transaction with this hash does not exist or is inactive: '
@@ -145,7 +145,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
 
             # if the voting key from the current mn configuration doesn't match the key stored on the network
             # use the key from the configuration as an initial value
-            if self.masternode.get_dmn_voting_public_address(self.app_config.dash_network) != \
+            if self.masternode.get_dmn_voting_public_address(self.app_config.absolute_network) != \
                     self.dmn_prev_voting_address:
                 if self.masternode.dmn_voting_key_type == InputKeyType.PRIVATE:
                     self.edtVotingKey.setText(self.masternode.dmn_voting_private_key)
@@ -168,13 +168,13 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
 
         def get_label_text(prefix:str, key_type: str, tooltip_anchor: str, style: str):
             lbl = prefix + ' ' + \
-                  {'privkey': 'private key', 'pubkey': 'public key', 'address': 'Dash address'}.get(key_type, '???')
+                  {'privkey': 'private key', 'pubkey': 'public key', 'address': 'Absolute address'}.get(key_type, '???')
 
             change_mode = f'(<a href="{tooltip_anchor}">use {tooltip_anchor}</a>)'
             return f'<table style="float:right;{style_to_color(style)}"><tr><td><b>{lbl}</b></td><td>{change_mode}' \
                 f'</td></tr></table>'
 
-        self.edtPayoutAddress.setToolTip('Enter a new payout Dash address.')
+        self.edtPayoutAddress.setToolTip('Enter a new payout Absolute address.')
 
         if self.dmn_operator_key_type == InputKeyType.PRIVATE:
             key_type, tooltip_anchor, placeholder_text = ('privkey', 'pubkey', 'Enter a new operator private key.')
@@ -189,7 +189,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
             key_type, tooltip_anchor, placeholder_text = ('privkey','address', 'Enter a new voting private key.')
             style = ''
         else:
-            key_type, tooltip_anchor, placeholder_text = ('address', 'privkey', 'Enter a new voting Dash address.')
+            key_type, tooltip_anchor, placeholder_text = ('address', 'privkey', 'Enter a new voting Absolute address.')
             style = 'hl1'
         self.lblVotingKey.setText(get_label_text('Voting', key_type, tooltip_anchor, style))
         self.edtVotingKey.setToolTip(placeholder_text)
@@ -252,7 +252,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
     @pyqtSlot(str)
     def on_lblVotingKey_linkHovered(self, link):
         if link == 'address':
-            tt = 'Change input type to Dash address'
+            tt = 'Change input type to Absolute address'
         else:
             tt = 'Change input type to private key'
         self.lblVotingKey.setToolTip(tt)
@@ -268,14 +268,14 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
 
     @pyqtSlot(bool)
     def on_btnGenerateVotingKey_clicked(self, active):
-        k = generate_wif_privkey(self.app_config.dash_network, compressed=True)
+        k = generate_wif_privkey(self.app_config.absolute_network, compressed=True)
         self.edtVotingKey.setText(k)
 
     def validate_data(self):
         payout_address = self.edtPayoutAddress.text()
         if payout_address:
-            if not validate_address(payout_address, self.app_config.dash_network):
-                raise Exception('Invalid payout Dash address')
+            if not validate_address(payout_address, self.app_config.absolute_network):
+                raise Exception('Invalid payout Absolute address')
             else:
                 self.dmn_new_payout_address = payout_address
         else:
@@ -317,18 +317,18 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
         if key:
             if self.dmn_voting_key_type == InputKeyType.PRIVATE:
                 self.dmn_new_voting_privkey = key
-                if not validate_wif_privkey(self.dmn_new_voting_privkey, self.app_config.dash_network):
+                if not validate_wif_privkey(self.dmn_new_voting_privkey, self.app_config.absolute_network):
                     self.edtVotingKey.setFocus()
                     raise Exception('Invalid voting private key.')
                 else:
                     self.dmn_new_voting_address = wif_privkey_to_address(self.dmn_new_voting_privkey,
-                                                                         self.app_config.dash_network)
+                                                                         self.app_config.absolute_network)
             else:
                 self.dmn_new_voting_address = key
                 self.dmn_new_voting_privkey = ''
-                if not validate_address(self.dmn_new_voting_address, self.app_config.dash_network):
+                if not validate_address(self.dmn_new_voting_address, self.app_config.absolute_network):
                     self.edtVotingKey.setFocus()
-                    raise Exception('Invalid voting Dash address.')
+                    raise Exception('Invalid voting Absolute address.')
         else:
             self.dmn_new_voting_address = self.dmn_prev_voting_address
             self.dmn_new_voting_privkey = ''
@@ -345,12 +345,12 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
                     f'"{self.dmn_new_voting_address}" "{self.dmn_new_payout_address}" ' \
                     f'"<span style="color:green">feeSourceAddress</span>"'
                 msg = "<ol>" \
-                      "<li>Start a Dash Core wallet with sufficient funds to cover a transaction fee.</li>"
-                msg += "<li>Import the owner private key into the Dash Core wallet if you haven't done this " \
+                      "<li>Start a Absolute Core wallet with sufficient funds to cover a transaction fee.</li>"
+                msg += "<li>Import the owner private key into the Absolute Core wallet if you haven't done this " \
                        "before (<a href=\"https://github.com/absolute-community/absolute-masternode-tool/blob/master/doc/" \
                        "deterministic-mn-migration.md#can-i-modify-the-payout-address-without-resetting-the-" \
                        "place-in-the-payment-queue\">details</a>).</li>"
-                msg += "<li>Execute the following command in the Dash Core debug console:<br><br>"
+                msg += "<li>Execute the following command in the Absolute Core debug console:<br><br>"
                 msg += "  <code style=\"background-color:#e6e6e6\">" + cmd + '</code></li><br>'
                 msg += 'Replace <span style="color:green">feeSourceAddress</span> with the address being the ' \
                        'source of the transaction fee.'
@@ -382,7 +382,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
         if self.dmn_prev_payout_address == self.dmn_new_payout_address and \
             self.dmn_prev_operator_pubkey == self.dmn_new_operator_pubkey and \
             self.dmn_prev_voting_address == self.dmn_new_voting_address:
-            WndUtils.warnMsg('Nothing is changed compared to the data stored in the Dash network.')
+            WndUtils.warnMsg('Nothing is changed compared to the data stored in the Absolute network.')
         else:
             self.send_upd_tx()
 
@@ -390,10 +390,10 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
         # verify the owner key used in the configuration
         if self.masternode.dmn_owner_key_type == InputKeyType.PRIVATE and self.masternode.dmn_owner_private_key:
             owner_address = wif_privkey_to_address(self.masternode.dmn_owner_private_key,
-                                                   self.app_config.dash_network)
+                                                   self.app_config.absolute_network)
             if owner_address != self.dmn_owner_address:
                 raise Exception('Inconsistency of the owner key between the app configuration and the data '
-                                'on the Dash network.')
+                                'on the Absolute network.')
         else:
             raise Exception('To use this feature, you need to have the owner private key in your masternode '
                             'configuration.')
@@ -408,7 +408,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
                       funding_address]
 
             try:
-                upd_reg_support = self.dashd_intf.checkfeaturesupport('protx_update_registrar',
+                upd_reg_support = self.absoluted_intf.checkfeaturesupport('protx_update_registrar',
                                                                       self.app_config.app_version)
                 if not upd_reg_support.get('enabled'):
                     if upd_reg_support.get('message'):
@@ -434,7 +434,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
                 try:
                     # find an address to be used as the source of the transaction fees
                     min_fee = round(1024 * FEE_DUFF_PER_BYTE / 1e8, 8)
-                    balances = self.dashd_intf.listaddressbalances(min_fee)
+                    balances = self.absoluted_intf.listaddressbalances(min_fee)
                     bal_list = []
                     for addr in balances:
                         bal_list.append({'address': addr, 'amount': balances[addr]})
@@ -450,7 +450,7 @@ class UpdMnRegistrarDlg(QDialog, ui_upd_mn_registrar_dlg.Ui_UpdMnRegistrarDlg, W
             else:
                 params.append(self.masternode.dmn_owner_private_key)
 
-            upd_tx_hash = self.dashd_intf.rpc_call(True, False, 'protx', *params)
+            upd_tx_hash = self.absoluted_intf.rpc_call(True, False, 'protx', *params)
 
             if upd_tx_hash:
                 logging.info('update_registrar successfully executed, tx hash: ' + upd_tx_hash)
